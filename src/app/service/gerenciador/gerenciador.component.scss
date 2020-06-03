@@ -1,28 +1,81 @@
 .gerenciador {
-    margin-top: 5%;
+    margin-top: 3%;
     display: flex;
     justify-content: center;
-    justify-content: space-evenly;
-    padding: 0 35%;
+    align-items: center;
 
-    &__lista {
-        margin-left: 3%;
+    &__botoes {
         display: flex;
-        justify-content: center;
-        margin-top: 5%;
+        justify-content: space-evenly;
+        width: 100%;
+
+        &-secundario {
+            margin-left: 2%;
+        }
+    }
+
+    &__cadastrar {
+        display: none;
+
+        &-tabela {
+            width: 50%;
+            margin-bottom: 0;
+
+            input {
+                width: 60px;
+            }
+        }
+    }
+
+    &__editar {
+        display: none;
+
+        &-tabela {
+            width: 52%;
+            display: none;
+            align-items: center; 
+        }
+
+    }
+
+    &__excluir {
+        display: none;
     }
 }
 
-#cadastrarLivro {
+#inputEditar {
+    width: 100%;
     display: none;
-    width: 30%;
 }
 
-#editarLivro {
+#inputExcluir {
+    width: 100%;
     display: none;
-    width: 20%;
 }
 
-#inputEditarLivro {
-    display: none;
+@media (min-width: 992px) {
+    .gerenciador {
+
+        &__botoes {
+            width: 30%;
+        }
+
+        &__cadastrar {
+
+            &-tabela {
+
+                input {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    #inputEditar {
+        width: 20%;
+    }
+
+    #inputExcluir {
+        width: 20%;
+    }
 }

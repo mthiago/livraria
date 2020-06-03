@@ -12,6 +12,7 @@ import { ListaComponent } from './lista/lista.component';
 import { ListaService } from './service/lista.service';
 import { LoginService } from './service/login.service';
 import { GerenciadorComponent } from './service/gerenciador/gerenciador.component';
+import { DataService } from './service/data.service';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { GerenciadorComponent } from './service/gerenciador/gerenciador.componen
     AppRoutingModule,
     FormsModule
   ],
-  providers: [ListaService, LoginService],
+  providers: [ListaService, LoginService, DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

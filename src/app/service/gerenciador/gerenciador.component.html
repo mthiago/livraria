@@ -1,10 +1,13 @@
 <div class="gerenciador">
-    <button type="button" class="btn btn-primary" (click)="exibeCadastro()">Cadastrar livro</button>
-    <button type="button" class="btn btn-primary" (click)="exibeEditar()">Editar livro</button>
+    <div class="gerenciador__botoes">
+        <button type="button" class="btn btn-primary" (click)="exibeCadastro()">Cadastrar livro</button>
+        <button type="button" class="btn btn-primary" (click)="exibeEditar()">Editar livro</button>
+        <button type="button" class="btn btn-primary" (click)="exibeExcluir()">Excluir livro</button>
+    </div>
 </div>
 
-<div class="gerenciador__lista" id="cadastrarLivro">
-    <table class="table table-top">
+<div class="gerenciador gerenciador__cadastrar">
+    <table class="table table-top gerenciador__cadastrar-tabela">
         <thead>
         <tr>
             <th scope="col">Título</th>
@@ -14,25 +17,25 @@
         </thead>
         <tbody>
         <tr>
-            <td><input type="text" #titulo></td>
-            <td><input type="text" #autor></td>
-            <td><input type="text" #ano></td>
+            <td><input type="text" #tituloCadastro></td>
+            <td><input type="text" #autorCadastro></td>
+            <td><input type="text" #anoCadastro></td>
         </tr>
         </tbody>
     </table>
-    <button type="button" class="btn btn-primary" (click)="cadastrar(titulo.value, autor.value, ano.value)">Cadastrar</button>
+    <button type="button" class="btn btn-primary gerenciador__botoes-secundario" (click)="cadastrar(tituloCadastro.value, autorCadastro.value, anoCadastro.value)">OK</button>
 </div>
 
-<div class="gerenciador__lista" id="editarLivro">
-    <div class="input-group mb-3">
+<div class="gerenciador gerenciador__editar">
+    <div class="input-group" id="inputEditar">
         <div class="input-group-prepend">
         <span #id class="input-group-text" id="basic-addon1">Digite o ID do livro</span>
         </div>
         <input #id type="text" class="form-control" aria-describedby="basic-addon1">
-        <button type="button" class="btn btn-primary" (click)="buscaLivroEditar(id.value)">Editar</button>
+        <button type="button" class="btn btn-primary gerenciador__botoes-secundario" (click)="buscaLivroEditar(id.value)">Editar</button>
     </div>
 
-    <div id="inputEditarLivro">
+    <div class="gerenciador__editar-tabela">
         <table class="table table-top">
             <thead>
             <tr>
@@ -43,13 +46,22 @@
             </thead>
             <tbody>
             <tr>
-                <td><input #titulo id="titulo" type="text" value="{{ livro.titulo }}"></td>
-                <td><input #autor id="autor" type="text" value="{{ livro.autor }}"></td>
-                <td><input #ano id="ano" type="text" value="{{ livro.ano }}"></td>
+                <td><input #tituloEditar id="titulo" type="text" value="{{ livro.titulo }}"></td>
+                <td><input #autorEditar id="autor" type="text" value="{{ livro.autor }}"></td>
+                <td><input #anoEditar id="ano" type="text" value="{{ livro.ano }}"></td>
             </tr>
             </tbody>
         </table>
-        <button type="button" class="btn btn-primary" (click)="editar(titulo.value, autor.value, ano.value)">Editar</button>
+        <button type="button" class="btn btn-primary gerenciador__botoes-secundario" (click)="editar(tituloEditar.value, autorEditar.value, anoEditar.value)">OK</button>
     </div>
+</div>
 
+<div class="gerenciador gerenciador__excluir">
+    <div class="input-group" id="inputExcluir">
+        <div class="input-group-prepend">
+        <span #id class="input-group-text" id="basic-addon1">Digite o ID do livro</span>
+        </div>
+        <input #id type="text" class="form-control" aria-describedby="basic-addon1">
+        <button type="button" class="btn btn-primary gerenciador__botoes-secundario" (click)="excluir(id.value)">Excluir</button>
+    </div>
 </div>

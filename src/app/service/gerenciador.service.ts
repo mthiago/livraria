@@ -1,14 +1,18 @@
 import { Injectable } from '@angular/core';
 import { ListaService } from './lista.service';
 
+import { Livro } from '../model/livro.model'
+import { DataService } from './data.service'
+
 @Injectable({
   providedIn: 'root'
 })
 export class GerenciadorService {
 
-  constructor(private listaService: ListaService) { }
+  constructor(private listaService: ListaService, private data: DataService) {}
 
   private ultimoId: number = 1
+  public livros: Livro[]
 
   criar(titulo, autor, ano) {
     this.listaService.livros.forEach(element => { 
@@ -42,4 +46,18 @@ export class GerenciadorService {
     });
     console.log(this.listaService.livros)
   }
+
+  excluir(id) {
+    let livros: any = []
+    this.data.listaLivro.forEach(element => {
+      if (element.id != id) {
+        livros.push(element)
+      }
+    });
+
+    this.livros = livros;
+    this.data.changeLivros(this.livros)
+    return livros
+  }
+
 }
