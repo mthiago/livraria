@@ -15,7 +15,7 @@ export class GerenciadorService {
   public livros: Livro[]
 
   criar(titulo, autor, ano) {
-    this.listaService.livros.forEach(element => { 
+    this.data.listaLivro.forEach(element => { 
       if (element.id >= this.ultimoId) {
         this.ultimoId = element.id+1
       }
@@ -29,22 +29,21 @@ export class GerenciadorService {
       "alugado": false,
       "excluido": false
     }
-    this.listaService.livros.push(livro)
+    this.data.listaLivro.push(livro)
   }
 
   buscaLivroEditar(id) {
-    return this.listaService.livros.filter(livro => livro.id == id)[0]
+    return this.data.listaLivro.filter(livro => livro.id == id)[0]
   }
 
   editar(titulo, autor, ano, id) {
-    this.listaService.livros.forEach(element => {
+    this.data.listaLivro.forEach(element => {
       if (element.id === id) {
         element.titulo = titulo
         element.autor = autor
         element.ano = ano
       }
     });
-    console.log(this.listaService.livros)
   }
 
   excluir(id) {

@@ -29,10 +29,10 @@
 <div class="gerenciador gerenciador__editar">
     <div class="input-group" id="inputEditar">
         <div class="input-group-prepend">
-        <span #id class="input-group-text" id="basic-addon1">Digite o ID do livro</span>
+        <span class="input-group-text" id="basic-addon1">Digite o ID do livro</span>
         </div>
-        <input #id type="text" class="form-control" aria-describedby="basic-addon1">
-        <button type="button" class="btn btn-primary gerenciador__botoes-secundario" (click)="buscaLivroEditar(id.value)">Editar</button>
+        <input #idEditar type="text" class="form-control" aria-describedby="basic-addon1">
+        <button type="button" class="btn btn-primary gerenciador__botoes-secundario" (click)="buscaLivroEditar(idEditar.value)">Editar</button>
     </div>
 
     <div class="gerenciador__editar-tabela">
@@ -59,9 +59,11 @@
 <div class="gerenciador gerenciador__excluir">
     <div class="input-group" id="inputExcluir">
         <div class="input-group-prepend">
-        <span #id class="input-group-text" id="basic-addon1">Digite o ID do livro</span>
+        <span class="input-group-text" id="basic-addon1">Digite o ID do livro</span>
         </div>
-        <input #id type="text" class="form-control" aria-describedby="basic-addon1">
-        <button type="button" class="btn btn-primary gerenciador__botoes-secundario" (click)="excluir(id.value)">Excluir</button>
+        <input #idExcluir type="text" class="form-control" aria-describedby="basic-addon1">
+        <button type="button" class="btn btn-primary gerenciador__botoes-secundario" (click)="excluir(idExcluir.value)">Excluir</button>
     </div>
 </div>
+
+<div class="gerenciador__erro" id="erro-alugado">Não é possível editar/excluir um livro alugado.</div>

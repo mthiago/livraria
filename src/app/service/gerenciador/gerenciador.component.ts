@@ -17,6 +17,7 @@ export class GerenciadorComponent implements OnInit {
   private inputEditar: any
   private inputExcluir: any
   private divExcluir: any
+  private gerenciadorErro: any
 
   public livros: Livro[]
 
@@ -29,7 +30,6 @@ export class GerenciadorComponent implements OnInit {
       'alugado': false
     }
     this.data.currentMessage.subscribe((livros) => this.livros = livros);
-    console.log(this.livros);
   }
 
   ngOnInit() {
@@ -39,6 +39,7 @@ export class GerenciadorComponent implements OnInit {
     this.divEditarTabela = document.getElementsByClassName('gerenciador__editar-tabela')[0]
     this.inputEditar = document.getElementById('inputEditar')
     this.inputExcluir = document.getElementById('inputExcluir')
+    this.gerenciadorErro = document.getElementsByClassName('gerenciador__erro')[0]
   }
 
   exibeCadastro() {
@@ -46,18 +47,22 @@ export class GerenciadorComponent implements OnInit {
     this.escondeDiv(this.inputEditar)
     this.escondeDiv(this.divEditar)
     this.escondeDiv(this.divEditarTabela)
+    this.escondeDiv(this.divExcluir)
   }
 
   exibeEditar() {
     this.inputEditar.style.display = 'flex'
     this.divEditar.style.display = 'flex'
     this.escondeDiv(this.divCadastrar)
+    this.escondeDiv(this.divExcluir)
   }
 
   exibeExcluir() {
     this.inputExcluir.style.display = 'flex'
     this.divExcluir.style.display = 'flex'
     this.escondeDiv(this.divCadastrar)
+    this.escondeDiv(this.divEditar)
+    this.escondeDiv(this.divEditarTabela)
   }
 
   escondeDiv(div) {
@@ -66,9 +71,22 @@ export class GerenciadorComponent implements OnInit {
 
   buscaLivroEditar(id) {
     this.escondeDiv(this.inputEditar)
-    this.divEditar.style.display = 'flex'
-    this.divEditarTabela.style.display = 'flex'
-    this.livro = this.gerenciadorService.buscaLivroEditar(id)
+    if (this.verificaAluguel(id)) {
+      this.gerenciadorErro.style.display = 'flex'
+      this.setTimeOut()
+      this.divEditar.style.display = 'none'
+    } else {
+      this.livro = this.gerenciadorService.buscaLivroEditar(id)
+      this.divEditar.style.display = 'flex'
+      this.divEditarTabela.style.display = 'flex'
+    }
+  }
+
+  setTimeOut() {
+    setTimeout(
+      function() {
+        document.getElementById('erro-alugado').style.display = 'none'
+      }, 5000);
   }
 
   editar(titulo, autor, ano) {
@@ -82,7 +100,25 @@ export class GerenciadorComponent implements OnInit {
   }
 
   excluir(id) {
-    this.livros = this.gerenciadorService.excluir(id)
+    if (this.verificaAluguel(id)) {
+      this.gerenciadorErro.style.display = 'flex'
+      this.setTimeOut()
+      this.divExcluir.style.display = 'none'
+    } else {
+      this.livros = this.gerenciadorService.excluir(id)
+    }
+  }
+
+  verificaAluguel(id) {
+    let alugado = false
+    let livro = this.data.listaLivro.forEach(element => {
+      if (element.id == id) {
+        if (element.alugado) {
+          alugado = true
+        }
+      }
+    });
+    return alugado
   }
 
 }
