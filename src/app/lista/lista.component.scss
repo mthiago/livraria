@@ -1,0 +1,25 @@
+.lista {
+
+    display: flex;
+    justify-content: center;
+    padding: 0 3%;
+
+    &__filtro {
+        margin-top: 3%;
+        display: flex;
+        justify-content: center;
+    }
+
+    &__alugado {
+        color: red;
+    }
+
+    &__disponivel {
+        color: green;
+    }
+
+    &__box {
+        float: left;
+        margin-top: 3%;
+    }
+}

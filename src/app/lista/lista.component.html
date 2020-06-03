@@ -1,0 +1,43 @@
+<app-gerenciador></app-gerenciador>
+
+<div class="lista__filtro">
+    <nav class="navbar navbar-light bg-white">
+        <form class="form-inline">
+            <input class="form-control mr-sm-2" [(ngModel)]="search" name="search" type="search" placeholder="Procurar por título" aria-label="Procurar por título">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Procurar</button>
+        </form>
+    </nav>
+</div>
+
+<div class="lista">
+<table class="table lista__box">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Título</th>
+        <th scope="col">Autor</th>
+        <th scope="col">Ano</th>
+        <th scope="col">Status</th>
+        <th scope="col">Alugar</th>
+        <th scope="col">Devolver</th>
+        <th scope="col">Excluir</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let i of livros | filter : search">
+          <th *ngIf="i.excluido == false" scope="row">{{ i.id }}</th>
+          <td *ngIf="i.excluido == false">{{ i.titulo }}</td>
+          <td *ngIf="i.excluido == false">{{ i.autor }}</td>
+          <td *ngIf="i.excluido == false">{{ i.ano }}</td>
+          <td *ngIf="i.alugado == true && i.excluido == false" class="lista__alugado">INDISPONÍVEL</td>
+          <td *ngIf="i.alugado == false && i.excluido == false" class="lista__disponivel">DISPONÍVEL</td>
+          <td *ngIf="i.alugado == false && i.excluido == false"><button type="button" class="btn btn-primary" (click)="alugar(i.id)">ALUGAR</button></td>
+          <td *ngIf="i.alugado == true && i.excluido == false"><button type="button" class="btn btn-primary" disabled>ALUGAR</button></td>
+          <td *ngIf="i.alugado == false && i.excluido == false"><button type="button" class="btn btn-primary" disabled>DEVOLVER</button></td>
+          <td *ngIf="i.alugado == true && i.excluido == false"><button type="button" class="btn btn-primary" (click)="devolver(i.id)">DEVOLVER</button></td>
+          <td *ngIf="i.alugado == false && i.excluido == false"><button type="button" class="btn btn-danger" (click)="excluir(i.id)">EXCLUIR</button></td>
+          <td *ngIf="i.alugado == true && i.excluido == false"><button type="button" class="btn btn-danger" disabled>EXCLUIR</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,28 @@
+.gerenciador {
+    margin-top: 5%;
+    display: flex;
+    justify-content: center;
+    justify-content: space-evenly;
+    padding: 0 35%;
+
+    &__lista {
+        margin-left: 3%;
+        display: flex;
+        justify-content: center;
+        margin-top: 5%;
+    }
+}
+
+#cadastrarLivro {
+    display: none;
+    width: 30%;
+}
+
+#editarLivro {
+    display: none;
+    width: 20%;
+}
+
+#inputEditarLivro {
+    display: none;
+}

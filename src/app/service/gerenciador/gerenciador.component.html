@@ -1,0 +1,55 @@
+<div class="gerenciador">
+    <button type="button" class="btn btn-primary" (click)="exibeCadastro()">Cadastrar livro</button>
+    <button type="button" class="btn btn-primary" (click)="exibeEditar()">Editar livro</button>
+</div>
+
+<div class="gerenciador__lista" id="cadastrarLivro">
+    <table class="table table-top">
+        <thead>
+        <tr>
+            <th scope="col">Título</th>
+            <th scope="col">Autor</th>
+            <th scope="col">Ano</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td><input type="text" #titulo></td>
+            <td><input type="text" #autor></td>
+            <td><input type="text" #ano></td>
+        </tr>
+        </tbody>
+    </table>
+    <button type="button" class="btn btn-primary" (click)="cadastrar(titulo.value, autor.value, ano.value)">Cadastrar</button>
+</div>
+
+<div class="gerenciador__lista" id="editarLivro">
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+        <span #id class="input-group-text" id="basic-addon1">Digite o ID do livro</span>
+        </div>
+        <input #id type="text" class="form-control" aria-describedby="basic-addon1">
+        <button type="button" class="btn btn-primary" (click)="buscaLivroEditar(id.value)">Editar</button>
+    </div>
+
+    <div id="inputEditarLivro">
+        <table class="table table-top">
+            <thead>
+            <tr>
+                <th scope="col">Título</th>
+                <th scope="col">Autor</th>
+                <th scope="col">Ano</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><input #titulo id="titulo" type="text" value="{{ livro.titulo }}"></td>
+                <td><input #autor id="autor" type="text" value="{{ livro.autor }}"></td>
+                <td><input #ano id="ano" type="text" value="{{ livro.ano }}"></td>
+            </tr>
+            </tbody>
+        </table>
+        <button type="button" class="btn btn-primary" (click)="editar(titulo.value, autor.value, ano.value)">Editar</button>
+    </div>
+
+</div>

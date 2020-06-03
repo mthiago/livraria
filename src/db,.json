@@ -1,0 +1,25 @@
+{
+    "livros": [
+    {
+        "id": 1,
+        "titulo": "Livro 1",
+        "autor": "Autor 1",
+        "ano": 1991,
+        "alugado": false
+    },
+    {
+        "id": 2,
+        "titulo": "Livro 2",
+        "autor": "Autor 2",
+        "ano": 1992,
+        "alugado": false
+    },
+    {
+        "id": 3,
+        "titulo": "Livro 3",
+        "autor": "Autor 3",
+        "ano": 1993,
+        "alugado": false
+    }    
+    ]
+}
