@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { LoginComponent } from './login/login.component';
 import { ListaComponent } from './lista/lista.component';
-import { GerenciadorComponent } from './service/gerenciador/gerenciador.component';
+import { GerenciadorComponent } from './gerenciador/gerenciador.component';
 
 
 const routes: Routes = [

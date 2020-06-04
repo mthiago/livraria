@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { GerenciadorService } from '../gerenciador.service';
-import { Livro } from '../../model/livro.model';
-import { DataService } from '../../service/data.service';
+import { GerenciadorService } from '../service/gerenciador.service';
+import { Livro } from '../model/livro.model';
+import { DataService } from '../service/data.service';
 
 @Component({
   selector: 'app-gerenciador',
@@ -111,7 +111,7 @@ export class GerenciadorComponent implements OnInit {
   verificaAluguel(id) {
     let alugado = false;
     const livro = this.data.listaLivro.forEach(element => {
-      if (element.id === id) {
+      if (element.id == id) {
         if (element.alugado) {
           alugado = true;
         }

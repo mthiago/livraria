@@ -10,7 +10,7 @@ import { LoginComponent } from './login/login.component';
 import { ListaComponent } from './lista/lista.component';
 import { ListaService } from './service/lista.service';
 import { LoginService } from './service/login.service';
-import { GerenciadorComponent } from './service/gerenciador/gerenciador.component';
+import { GerenciadorComponent } from './gerenciador/gerenciador.component';
 import { DataService } from './service/data.service';
 
 @NgModule({

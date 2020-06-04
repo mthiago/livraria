@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { ListaService } from './lista.service';
 import { Livro } from '../model/livro.model';
 import { DataService } from './data.service';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Injectable({
   providedIn: 'root'
@@ -29,10 +30,11 @@ export class GerenciadorService {
       excluido: false
     };
     this.data.listaLivro.push(livro);
+    this.data.changeLivros(this.data.listaLivro);
   }
 
   buscaLivroEditar(id) {
-    return this.data.listaLivro.filter(livro => livro.id === id)[0];
+    return this.data.listaLivro.filter(livro => livro.id == id)[0];
   }
 
   editar(titulo, autor, ano, id) {
@@ -48,7 +50,7 @@ export class GerenciadorService {
   excluir(id) {
     const livros: any = [];
     this.data.listaLivro.forEach(element => {
-      if (element.id !== id) {
+      if (element.id != id) {
         livros.push(element);
       }
     });
