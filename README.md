@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Instructions
 localhost:4200/login<br>
-localhost:4200/lista
+localhost:4200/lista<br>
 Use "teste@gmail.com" (e-mail) and "123456" (password) to login.
 
 ## Development server
