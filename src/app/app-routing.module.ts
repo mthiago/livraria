@@ -8,8 +8,7 @@ import { GerenciadorComponent } from './gerenciador/gerenciador.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
-  { path: 'lista', component: ListaComponent },
-  { path: 'gerenciador', component: GerenciadorComponent }
+  { path: 'lista', component: ListaComponent }
 ];
 
 @NgModule({
