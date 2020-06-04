@@ -9,29 +9,29 @@ export class LoginService {
 
   login(email, senha) {
     if (email === 'teste@gmail.com' && senha === '123456') {
-      return 'a711jdnf'
+      return 'a711jdnf';
     }
-    return ''
+    return '';
   }
 
   setToken(token) {
-    localStorage.setItem('token', token)
+    localStorage.setItem('token', token);
   }
 
   getToken() {
-    return localStorage.getItem('token')
+    return localStorage.getItem('token');
   }
 
   logoff() {
-    localStorage.removeItem('token')
+    localStorage.removeItem('token');
   }
 
   isLoggedIn() {
-    let token = this.getToken()
+    const token = this.getToken();
     if (token) {
-      return true
+      return true;
     }
-    return false
+    return false;
   }
 
 }

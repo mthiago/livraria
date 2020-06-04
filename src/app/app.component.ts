@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  constructor(private loginService: LoginService, private router: Router) { 
+  constructor(private loginService: LoginService, private router: Router) {
     if (!loginService.isLoggedIn()) {
       router.navigate(['login']);
     }

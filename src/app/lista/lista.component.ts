@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Livro } from '../model/livro.model';
 import { ListaService } from '../service/lista.service';
-import { DataService } from '../service/data.service'
+import { DataService } from '../service/data.service';
 
 @Component({
   selector: 'app-lista',
@@ -10,24 +10,22 @@ import { DataService } from '../service/data.service'
 })
 export class ListaComponent implements OnInit {
 
-  public livros: Livro[]
+  public livros: Livro[];
 
   constructor(private listaService: ListaService, private data: DataService) {
     this.data.currentMessage.subscribe((livros) => this.livros = livros);
-    console.log(this.livros);
   }
 
   ngOnInit() {
-    this.listar()
+    this.listar();
   }
 
   listar() {
-    this.livros = this.data.listaLivro
-    console.log(this.livros)
+    this.livros = this.data.listaLivro;
   }
 
   alugar(id) {
-    this.listaService.alugar(id)
+    this.listaService.alugar(id);
   }
 
 }
